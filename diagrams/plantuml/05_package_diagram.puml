@@ -1,1 +1,28 @@
+@startuml
+package "ferroerp" {
+  package "presentation" {
+    package "web" {}
+    package "api" {}
+  }
 
+  package "application" {
+    package "usecases" {}
+    package "dto" {}
+  }
+
+  package "domain" {
+    package "inventory" {}
+    package "sales" {}
+    package "suppliers" {}
+    package "crm" {}
+    package "users" {}
+    package "shared" {}
+  }
+
+  package "infrastructure" {
+    package "persistence" {}
+    package "security" {}
+    package "notifications" {}
+  }
+}
+@enduml
