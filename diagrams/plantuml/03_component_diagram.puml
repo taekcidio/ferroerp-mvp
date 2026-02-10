@@ -1,1 +1,29 @@
+@startuml
+skinparam componentStyle rectangle
+
+component "Web Frontend\n(Admin + POS)" as FE
+component "Backend API" as BE
+database "PostgreSQL" as DB
+
+component "Auth & RBAC" as AUTH
+component "Inventory Module" as INV
+component "Suppliers Module" as SUP
+component "Sales & Billing Module" as SALES
+component "CRM Module" as CRM
+component "Low Stock Alerts" as NOTIF
+
+FE --> BE : HTTPS/JSON
+BE --> DB : SQL
+
+BE ..> AUTH
+BE ..> INV
+BE ..> SUP
+BE ..> SALES
+BE ..> CRM
+BE ..> NOTIF
+
+SALES ..> INV : update stock (OUT)
+SUP ..> INV : update stock (IN)
+CRM ..> SALES : credit checks
+@enduml
 
