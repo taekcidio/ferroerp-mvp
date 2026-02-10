@@ -23,6 +23,6 @@ Busca reemplazar Excel y procesos manuales para reducir pérdidas de inventario,
 ## Autores
 Integrantes del equipo:
 Laura Valeria Espejo Mantilla
-  Miguel Alejandro Vanegas Carrillo 
-  Stewen Alejandro Lopez Ramirez 
+Miguel Alejandro Vanegas Carrillo 
+Stewen Alejandro Lopez Ramirez 
 
