@@ -1,1 +1,59 @@
+@startuml
+object "Supplier: ACME Tools" as s1 {
+  nit = "900123456-7"
+  phone = "3000000000"
+}
+
+object "Product: Taladro 750W" as p1 {
+  sku = "TL-750"
+  salePrice = 220000
+  minStock = 5
+}
+
+object "Location: Sede Principal" as l1 {
+  name = "Principal"
+}
+
+object "Purchase #P-1001" as pur1 {
+  invoiceNumber = "FV-8891"
+  total = 1500000
+}
+
+object "PurchaseItem" as pi1 {
+  qty = 10
+  unitCost = 150000
+}
+
+object "StockMovement IN" as m1 {
+  type = IN
+  qty = 10
+  refType = "PURCHASE"
+}
+
+object "Customer: Juan Pérez" as c1 {
+  type = PERSON
+  isFrequent = true
+}
+
+object "Sale #S-5001" as sale1 {
+  paymentType = CASH
+  total = 220000
+}
+
+object "Invoice #F-000045" as inv1 {
+  number = "F-000045"
+}
+
+s1 -- pur1
+pur1 -- pi1
+pi1 -- p1
+pur1 -- l1
+m1 -- p1
+m1 -- l1
+
+c1 -- sale1
+sale1 -- inv1
+sale1 -- p1
+sale1 -- l1
+@enduml
 
