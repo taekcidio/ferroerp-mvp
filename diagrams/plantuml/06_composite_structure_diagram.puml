@@ -1,1 +1,27 @@
+@startuml
+skinparam componentStyle uml2
+
+component "SalesService" as Sales {
+  [CartBuilder] as Cart
+  [PricingPolicy] as Price
+  [CreditChecker] as Credit
+  [InvoiceGenerator] as InvoiceGen
+  [StockUpdater] as StockUp
+}
+
+component "InventoryService" as InvSvc
+component "CRMService" as CrmSvc
+database "DB" as DB
+
+Cart --> Price
+Cart --> Credit
+InvoiceGen --> DB
+StockUp --> InvSvc
+Credit --> CrmSvc
+
+Sales --> Cart
+Sales --> InvoiceGen
+Sales --> StockUp
+Sales --> DB
+@enduml
 
