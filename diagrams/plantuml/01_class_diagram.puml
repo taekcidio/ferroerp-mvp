@@ -1,1 +1,168 @@
+@startuml
+skinparam classAttributeIconSize 0
 
+class Supplier {
+  +id: UUID
+  +name: String
+  +nit: String
+  +phone: String
+  +email: String
+  +address: String
+}
+
+class Product {
+  +id: UUID
+  +sku: String
+  +name: String
+  +category: String
+  +brand: String
+  +unit: String
+  +salePrice: Money
+  +minStock: int
+  +isActive: boolean
+}
+
+class Location {
+  +id: UUID
+  +name: String
+  +address: String
+}
+
+class Stock {
+  +productId: UUID
+  +locationId: UUID
+  +qtyOnHand: int
+}
+
+enum MovementType {
+  IN
+  OUT
+  ADJUST
+}
+
+class StockMovement {
+  +id: UUID
+  +type: MovementType
+  +qty: int
+  +reason: String
+  +refType: String
+  +refId: UUID
+  +createdAt: DateTime
+}
+
+class Purchase {
+  +id: UUID
+  +invoiceNumber: String
+  +status: String
+  +purchaseDate: DateTime
+  +total: Money
+}
+
+class PurchaseItem {
+  +qty: int
+  +unitCost: Money
+  +subtotal: Money
+}
+
+enum CustomerType {
+  PERSON
+  COMPANY
+}
+
+class Customer {
+  +id: UUID
+  +type: CustomerType
+  +doc: String
+  +name: String
+  +phone: String
+  +email: String
+  +isFrequent: boolean
+}
+
+enum SaleType {
+  RETAIL
+  WHOLESALE
+}
+
+enum PaymentType {
+  CASH
+  CARD
+  CREDIT
+}
+
+class Sale {
+  +id: UUID
+  +type: SaleType
+  +paymentType: PaymentType
+  +status: String
+  +saleDate: DateTime
+  +total: Money
+}
+
+class SaleItem {
+  +qty: int
+  +unitPrice: Money
+  +discount: Money
+  +subtotal: Money
+}
+
+class Invoice {
+  +id: UUID
+  +number: String
+  +issueDate: DateTime
+  +notes: String
+}
+
+class CustomerCredit {
+  +creditLimit: Money
+  +currentBalance: Money
+  +status: String
+}
+
+class CreditPayment {
+  +id: UUID
+  +amount: Money
+  +paidAt: DateTime
+}
+
+class User {
+  +id: UUID
+  +name: String
+  +email: String
+  +passwordHash: String
+  +status: String
+}
+
+class Role {
+  +id: UUID
+  +name: String
+}
+
+class Permission {
+  +id: UUID
+  +code: String
+}
+
+Supplier "1" -- "0..*" Purchase
+Purchase "1" -- "1..*" PurchaseItem
+PurchaseItem "*" -- "1" Product
+Purchase "*" -- "1" Location
+
+Customer "0..1" -- "0..*" Sale
+Sale "1" -- "1..*" SaleItem
+SaleItem "*" -- "1" Product
+Sale "1" -- "1" Invoice
+Sale "*" -- "1" Location
+
+Product "1" -- "0..*" Stock
+Location "1" -- "0..*" Stock
+Product "1" -- "0..*" StockMovement
+Location "1" -- "0..*" StockMovement
+
+Customer "0..1" -- "0..1" CustomerCredit
+Customer "1" -- "0..*" CreditPayment
+
+User "*" -- "1" Location
+User "*" -- "*" Role
+Role "*" -- "*" Permission
+@enduml
