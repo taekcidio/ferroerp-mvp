@@ -1,1 +1,19 @@
+@startuml
+node "Employee PC / Tablet" as Client {
+  artifact "Browser"
+}
+
+node "Cloud / Server" as Server {
+  node "App Server" as App {
+    artifact "Frontend (SPA)"
+    artifact "Backend API"
+  }
+  node "DB Server" as DbNode {
+    database "PostgreSQL"
+  }
+}
+
+Client --> App : HTTPS
+App --> DbNode : TCP 5432
+@enduml
 
