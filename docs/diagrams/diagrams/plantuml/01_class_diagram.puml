@@ -34,6 +34,12 @@ class Stock {
   +qtyOnHand: int
 }
 
+enum MovementType {
+  IN
+  OUT
+  ADJUST
+}
+
 class StockMovement {
   +id: UUID
   +type: MovementType
@@ -43,8 +49,6 @@ class StockMovement {
   +refId: UUID
   +createdAt: DateTime
 }
-
-enum MovementType { IN; OUT; ADJUST }
 
 class Purchase {
   +id: UUID
@@ -60,6 +64,11 @@ class PurchaseItem {
   +subtotal: Money
 }
 
+enum CustomerType {
+  PERSON
+  COMPANY
+}
+
 class Customer {
   +id: UUID
   +type: CustomerType
@@ -70,7 +79,16 @@ class Customer {
   +isFrequent: boolean
 }
 
-enum CustomerType { PERSON; COMPANY }
+enum SaleType {
+  RETAIL
+  WHOLESALE
+}
+
+enum PaymentType {
+  CASH
+  CARD
+  CREDIT
+}
 
 class Sale {
   +id: UUID
@@ -80,9 +98,6 @@ class Sale {
   +saleDate: DateTime
   +total: Money
 }
-
-enum SaleType { RETAIL; WHOLESALE }
-enum PaymentType { CASH; CARD; CREDIT }
 
 class SaleItem {
   +qty: int
@@ -118,8 +133,15 @@ class User {
   +status: String
 }
 
-class Role { +id: UUID; +name: String }
-class Permission { +id: UUID; +code: String }
+class Role {
+  +id: UUID
+  +name: String
+}
+
+class Permission {
+  +id: UUID
+  +code: String
+}
 
 Supplier "1" -- "0..*" Purchase
 Purchase "1" -- "1..*" PurchaseItem
@@ -137,5 +159,10 @@ Location "1" -- "0..*" Stock
 Product "1" -- "0..*" StockMovement
 Location "1" -- "0..*" StockMovement
 
-Customer "0..1" -- "0..1" Custom
+Customer "0..1" -- "0..1" CustomerCredit
+Customer "1" -- "0..*" CreditPayment
 
+User "*" -- "1" Location
+User "*" -- "*" Role
+Role "*" -- "*" Permission
+@enduml
