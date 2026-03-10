@@ -1,0 +1,6 @@
+@ferroERP.api_HostAddress = http://localhost:5134
+
+GET {{ferroERP.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
