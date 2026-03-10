@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ferroERP.api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5aa9d9007352e73e1d629d4dcdd0556a950e1195")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c01679e2b425bba47465fbe71c82e944f22363a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ferroERP.api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ferroERP.api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

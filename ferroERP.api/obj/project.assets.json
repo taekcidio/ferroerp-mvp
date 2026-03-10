@@ -592,11 +592,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Steve\\Downloads\\Universidad\\Arquitectura de software\\repositorio\\ferroERP.api\\ferroERP.api\\ferroERP.api.csproj",
+      "projectUniqueName": "C:\\Users\\Steve\\source\\repos\\ferroerp-mvp\\ferroERP.api\\ferroERP.api.csproj",
       "projectName": "ferroERP.api",
-      "projectPath": "C:\\Users\\Steve\\Downloads\\Universidad\\Arquitectura de software\\repositorio\\ferroERP.api\\ferroERP.api\\ferroERP.api.csproj",
+      "projectPath": "C:\\Users\\Steve\\source\\repos\\ferroerp-mvp\\ferroERP.api\\ferroERP.api.csproj",
       "packagesPath": "C:\\Users\\Steve\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Steve\\Downloads\\Universidad\\Arquitectura de software\\repositorio\\ferroERP.api\\ferroERP.api\\obj\\",
+      "outputPath": "C:\\Users\\Steve\\source\\repos\\ferroerp-mvp\\ferroERP.api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
